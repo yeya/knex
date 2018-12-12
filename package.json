@@ -99,7 +99,8 @@
     "mssql:destroy": "docker-compose -f scripts/mssql-docker-compose.yml stop",
     "stress:init": "docker-compose -f scripts/stress-test/docker-compose.yml up --no-start && docker-compose -f scripts/stress-test/docker-compose.yml start",
     "stress:test": "node scripts/stress-test/knex-stress-test.js |  grep -A 5 -B 60 -- '- STATS '",
-    "stress:destroy": "docker-compose -f scripts/stress-test/docker-compose.yml stop"
+    "stress:destroy": "docker-compose -f scripts/stress-test/docker-compose.yml stop",
+    "sqlite:integration": "cross-env DB=sqlite3 nyc mocha --exit --check-leaks --globals __core-js_shared__ -t 10000 -R spec test/integration-tests.js"
   },
   "bin": {
     "knex": "./bin/cli.js"
