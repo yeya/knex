@@ -9,6 +9,7 @@ const fs = require('fs');
 
 const Promise = require('bluebird');
 
+console.log(`Executing tests for: ${Object.keys(config)}`);
 Promise.each(Object.keys(config), function(dialectName) {
   return require('./suite')(logger(knex(config[dialectName])));
 });
