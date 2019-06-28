@@ -1,4 +1,4 @@
-# Master (Unreleased)
+# Master
 
 # 0.18.0 - 26 June, 2019
 
